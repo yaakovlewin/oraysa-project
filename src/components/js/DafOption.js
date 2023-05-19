@@ -3,7 +3,7 @@ import gimatria from '../../js/gimatria'
 export default function DafOption({ dafim }) {
     const generateOptions = () => {
         const options = []
-        for (let i = 1; i <= dafim; i++) {
+        for (let i = 2; i <= dafim; i++) {
             options.push(<option key={i} value={gimatria(i)}>{gimatria(i)}</option>)
 
         }

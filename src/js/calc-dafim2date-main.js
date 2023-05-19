@@ -4,8 +4,9 @@ import getDate from './getDate'
 let firstDafStartDate = '2020-01-05';
 
 function totalDafim(maseches, daf, amud) {
-    let totalAmudim = (daf * 2) + amud - 1;
-    let masechesIndex = masechtot.findIndex((e) => e.name === maseches)
+    daf -= 2
+    let totalAmudim = (daf * 2) + amud;
+    let masechesIndex = masechtot.findIndex((element) => element.name === maseches)
     totalAmudim += totalPrevDafim(masechesIndex)
     return totalAmudim;
 }
@@ -22,7 +23,7 @@ function totalPrevDafim(num) {
 
 
 
-export default function calcDate(maseches, daf, amud = 1) {
+export default function calcDate(maseches, daf, amud = 0) {
     let dafim = totalDafim(maseches, daf, amud)
     return getDate(dafim, firstDafStartDate)
 }

@@ -8,7 +8,7 @@ import daf2num from '../../js/letter-to-num'
 
 function OptionSelector() {
     const [selectedOption1, setSelectedOption1] = useState("ברכות");
-    const [selectedOption2, setSelectedOption2] = useState("א");
+    const [selectedOption2, setSelectedOption2] = useState("ב");
     const [dafim, setDafim] = useState(0)
     const [date, setDate] = useState('')
 

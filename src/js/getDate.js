@@ -1,43 +1,43 @@
 import hebDateConvert from './hebcal-API.js'
 
-let countDaysPastFromStartingDate = (days, startingDate) => {
-    // Set the date you want to start with
-    const startDate = new Date(startingDate);
+let countFromStartingDate = (days, startingDate) => {
+    // // Set the date you want to start with
+    // const startDate = new Date(startingDate);
 
     // Define the number of days you want to add
     // const numberOfDaysToAdd = days;
-
+    console.log(days)
     // Create a new Date object and add the number of days
-    const endDate = new Date(startDate.getTime() + days * 24 * 60 * 60 * 1000);
+    let endDate = new Date(startingDate.getTime() + (days * 86400000));
+    console.log(endDate.getDate())
 
+    // add if fallen on weekday
+    switch (endDate.getDay()) {
+        case 5:
+            endDate = endDate.setDate(endDate.getTime() + (2 * 86400000))
+            break;
+        case 6:
+            endDate = endDate.setDate(endDate.getTime() + (1 * 86400000))
+            break;
+        default:
+            break;
+    }
     // Output the new date in ISO format (YYYY-MM-DD)
     return endDate.toISOString().slice(0, 10);
 }
 
 
-function addSumNonWorkingDays(totalWorkingDays, workingDaysOfWeek) {
-    let nonWorkingDaysOfWeek, days, lastWeeksExtraWorkingDays;
-    nonWorkingDaysOfWeek = 7 - workingDaysOfWeek;
-    days = daysInFullWeeksOnly(totalWorkingDays, workingDaysOfWeek)
-    days += lastWeeksExtraWorkingDays = totalWorkingDays % workingDaysOfWeek;
-    if (lastWeeksExtraWorkingDays === 0) {
-        days -= nonWorkingDaysOfWeek;
-    }
-    return days
-}
-
-function daysInFullWeeksOnly(activeDaysSum, workingDaysOfWeek) {
-    let numOfWeeks = Math.floor(activeDaysSum / workingDaysOfWeek)
-    return numOfWeeks * 7;
+function addNonWorkingDays(totalWorkingDays, workingDaysOfWeek) {
+    let days = Math.floor(totalWorkingDays / workingDaysOfWeek) * 7
+    return days += totalWorkingDays % workingDaysOfWeek;
 }
 
 export default async function calculateDate(activeDaysSum, startDate) {
-    console.log('dayes    :' + activeDaysSum)
-    let WorkingDaysOfWeek = 5
-    let daysPast = addSumNonWorkingDays(activeDaysSum, WorkingDaysOfWeek)
-    let Date = countDaysPastFromStartingDate(daysPast, startDate)
-    let hebDate = hebDateConvert(Date)
-
+    const startingDate = new Date(startDate);
+    let workingDaysOfWeek = 5
+    let daysPast = addNonWorkingDays(activeDaysSum, workingDaysOfWeek)
+    let date = countFromStartingDate(daysPast, startingDate)
+    let hebDate = hebDateConvert(date)
     return hebDate
 }
 
