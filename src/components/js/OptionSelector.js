@@ -24,9 +24,8 @@ function OptionSelector() {
     }, [selectedOption1])
 
     useEffect(() => {
-        console.log(selectedOption2)
         let currentDate = calcDate(selectedOption1, daf2num(selectedOption2))
-        currentDate.then((data) => { setDate(`${data.hd} ${data.hm} ${data.hy}`) })
+        currentDate.then((data) => { setDate(`${data.hebrew}`) })
 
     }, [selectedOption1, selectedOption2])
 
@@ -41,7 +40,7 @@ function OptionSelector() {
                 <DafOption dafim={dafim} />
             </select>
             <p className='text-sky-800  py-4'>You have selected: <em>{selectedOption1} דף {selectedOption2}</em></p>
-            <p>you {date}</p>
+            <p>Date: {date}</p>
         </div>
     );
 }

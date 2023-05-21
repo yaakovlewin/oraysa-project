@@ -11,6 +11,8 @@ function gimatria(num) {
     var Gim = letters.set3[Math.floor(num / 100)] +
         letters.set2[Math.floor((num % 100) / 10)] +
         letters.set1[num % 10];
+
+    Gim = String(Gim).replace(/יה/g, 'טו').replace(/יו/g, 'טז');
     return Gim
 }
 
