@@ -9,6 +9,7 @@ import daf2num from '../../js/letter-to-num'
 function OptionSelector() {
     const [selectedOption1, setSelectedOption1] = useState("ברכות");
     const [selectedOption2, setSelectedOption2] = useState("ב");
+    const [selectedAmud, setSelectedAmud] = useState(0)
     const [dafim, setDafim] = useState(0)
     const [date, setDate] = useState('')
 
@@ -18,28 +19,35 @@ function OptionSelector() {
     const handleOptionChange2 = (event) => {
         setSelectedOption2(event.target.value);
     }
+    const handleOptionChange3 = (event) => {
+        setSelectedAmud(event.target.value);
+    }
 
     useEffect(() => {
         setDafim(data.find((element) => element.name === selectedOption1).pages)
     }, [selectedOption1])
 
     useEffect(() => {
-        let currentDate = calcDate(selectedOption1, daf2num(selectedOption2))
+        let currentDate = calcDate(selectedOption1, daf2num(selectedOption2), Number(selectedAmud))
         currentDate.then((data) => { setDate(`${data.hebrew}`) })
 
-    }, [selectedOption1, selectedOption2])
+    }, [selectedOption1, selectedOption2, selectedAmud])
 
 
     return (
         <div className='block-flex space-x-4 py-4 px-10 '>
             <label htmlFor="option-select">Select an option:</label>
-            <select className=' rounded p-1 w-24 bg-zinc-200 border border-gray-800' id="option-select1" value={selectedOption1} onChange={handleOptionChange1}>
+            <select className=' rounded p-1 w-24 bg-zinc-200 border border-gray-800 hover:d' id="option-select1" value={selectedOption1} onChange={handleOptionChange1}>
                 <MasechesOption />
             </select>
-            <select className='p-1 w-14 rounded bg-zinc-200 border border-gray-800' id="option-select2" value={selectedOption2} onChange={handleOptionChange2}>
+            <select className='p-1 w-14 rounded bg-zinc-200 border border-gray-800' id="option-select2" value={selectedOption2} onChange={handleOptionChange2} placeholder='מסכת' >
                 <DafOption dafim={dafim} />
             </select>
-            <p className='text-sky-800  py-4'>You have selected: <em>{selectedOption1} דף {selectedOption2}</em></p>
+            <select value={selectedAmud} onChange={handleOptionChange3} className='p-1 w-14 rounded bg-zinc-200 border border-gray-800'>
+                <option value={0}>ע"א</option>
+                <option value={1}>ע"ב</option>
+            </select>
+            <p className='text-sky-800  py-4'>You have selected: <em>{selectedOption1} דף {selectedOption2} עמוד {selectedAmud ? 'ע"א' : 'ע"ב'}</em></p>
             <p>Date: {date}</p>
         </div>
     );

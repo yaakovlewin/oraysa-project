@@ -18,9 +18,7 @@ function addNonWorkingDays(totalWorkingDays, workingDaysOfWeek, startingDate) {
     let oddDaysOfweeks = totalWorkingDays % workingDaysOfWeek;
 
 
-    // if odd days of non full weeks roll over to a new week add 2 days.
-    // this function takes the days in the week from the start date to the start of that week plus
-    // the reminder of odd days at the end to calculate if odd days rolled over to new week
+    // if odd days of full weeks roll over to a new week add 2 days.
     if ((startingDate.getDay() + (oddDaysOfweeks)) > 4) {
         days += 2
     }

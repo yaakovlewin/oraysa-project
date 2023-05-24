@@ -5,7 +5,9 @@ let firstDafStartDate = '2020-01-05';
 
 function totalDafim(maseches, daf, amud) {
     daf -= 2
+    console.log(amud)
     let totalAmudim = (daf * 2) + amud;
+    console.log(totalAmudim)
     let masechesIndex = masechtot.findIndex((element) => element.name === maseches)
     totalAmudim += totalPrevDafim(masechesIndex)
     return totalAmudim;
