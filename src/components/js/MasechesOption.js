@@ -5,7 +5,7 @@ export default function MasechesOption() {
         <>{
             data.map(({ name }) => {
                 return (
-                    <option value={name}>{name}</option>
+                    <option value={name} key={name}>{name}</option>
                 )
             })
         }

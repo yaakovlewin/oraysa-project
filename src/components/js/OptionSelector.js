@@ -5,13 +5,15 @@ import data from '../../js/data'
 import DafOption from './DafOption';
 import calcDate from '../../js/calc-dafim2date-main';
 import daf2num from '../../js/letter-to-num'
+import Display from './Display';
 
 function OptionSelector() {
     const [selectedOption1, setSelectedOption1] = useState("ברכות");
     const [selectedOption2, setSelectedOption2] = useState("ב");
     const [selectedAmud, setSelectedAmud] = useState(0)
     const [dafim, setDafim] = useState(0)
-    const [date, setDate] = useState('')
+    const [hebDate, setHebDate] = useState('')
+    const [gregorianDate, setGregorianDate] = useState('')
 
     const handleOptionChange1 = (event) => {
         setSelectedOption1(event.target.value);
@@ -29,7 +31,8 @@ function OptionSelector() {
 
     useEffect(() => {
         let currentDate = calcDate(selectedOption1, daf2num(selectedOption2), Number(selectedAmud))
-        currentDate.then((data) => { setDate(`${data.hebrew}`) })
+        setGregorianDate(currentDate.date)
+        currentDate.hebDate.then((data) => { setHebDate(data.hebrew) })
 
     }, [selectedOption1, selectedOption2, selectedAmud])
 
@@ -47,8 +50,8 @@ function OptionSelector() {
                 <option value={0}>ע"א</option>
                 <option value={1}>ע"ב</option>
             </select>
-            <p className='text-sky-800  py-4'>You have selected: <em>{selectedOption1} דף {selectedOption2} עמוד {selectedAmud ? 'ע"א' : 'ע"ב'}</em></p>
-            <p>Date: {date}</p>
+            <Display hebDate={hebDate} gregorianDate={gregorianDate} />
+
         </div>
     );
 }

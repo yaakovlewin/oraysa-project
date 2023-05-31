@@ -8,7 +8,6 @@ let converteDate = (date) => {
 let getData = async (url) => {
     let response = await fetch(url);
     let jsonData = await response.json();
-    console.log(jsonData)
     return jsonData;
 }
 
