@@ -31,11 +31,11 @@ const numbers = {
 };
 
 function numerize(letter) {
-    let letterNum = 0;
+    let numericValue = 0;
     for (let i = 0; i < letter.length; i++) {
-        letterNum += numbers[letter.charAt(i)] || 0;
+        numericValue += numbers[letter.charAt(i)] || 0;
     }
-    return letterNum;
+    return numericValue;
 }
 
 export default numerize;
