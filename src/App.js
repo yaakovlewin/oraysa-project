@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import OptionSelector from './components/js/OptionSelector';
+import StudySchedule from './components/js/StudySchedule';
 import Nav from './components/js/Nav';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Nav />
       </header>
       <main className='flex justify-around'>
-        <OptionSelector />
+        <StudySchedule />
       </main>
     </>
 

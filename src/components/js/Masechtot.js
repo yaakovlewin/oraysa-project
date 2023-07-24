@@ -1,6 +1,6 @@
 import data from '../../js/data'
 
-export default function MasechesOption() {
+export default function Masechtot() {
     return (
         <>{
             data.map(({ name }) => {
