@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 import OptionSelector from './components/js/OptionSelector';
 import Nav from './components/js/Nav';
 
@@ -8,7 +9,7 @@ function App() {
       <header>
         <Nav />
       </header>
-      <main>
+      <main className='flex justify-around'>
         <OptionSelector />
       </main>
     </>
