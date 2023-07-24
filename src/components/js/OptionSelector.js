@@ -6,6 +6,7 @@ import DafOption from './DafOption';
 import calcDate from '../../js/calc-dafim2date-main';
 import daf2num from '../../js/letter-to-num'
 import Display from './Display';
+import Calendar from './Calendar';
 
 function OptionSelector() {
     const [selectedOption1, setSelectedOption1] = useState("ברכות");
@@ -51,6 +52,7 @@ function OptionSelector() {
                 <option value={1}>ע"ב</option>
             </select>
             <Display hebDate={hebDate} gregorianDate={gregorianDate} />
+            <Calendar />
 
         </div>
     );
