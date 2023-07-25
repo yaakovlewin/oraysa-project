@@ -5,7 +5,7 @@ let letters = {
 }
 
 
-function gimatria(num) {
+function gimatriaToLetter(num) {
     num = Math.floor(num)
 
     var gimLetter =
@@ -17,5 +17,5 @@ function gimatria(num) {
     return gimLetter
 }
 
-export default gimatria;
+export default gimatriaToLetter;
 

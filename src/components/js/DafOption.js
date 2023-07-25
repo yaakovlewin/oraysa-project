@@ -1,10 +1,10 @@
-import gimatria from '../../js/gimatria'
+import gimatriaToLetter from '../../js/num2heb-Letter'
 
 export default function DafOption({ dafim }) {
     const generateOptions = () => {
         const options = []
         for (let i = 2; i <= dafim; i++) {
-            options.push(<option key={i} value={gimatria(i)}>{gimatria(i)}</option>)
+            options.push(<option key={i} value={gimatriaToLetter(i)}>{gimatriaToLetter(i)}</option>)
 
         }
         return options;
@@ -14,6 +14,7 @@ export default function DafOption({ dafim }) {
 
     return (
         <>
+            <option value="בחר דף">בחר דף</option>
             {
                 generateOptions()
             }

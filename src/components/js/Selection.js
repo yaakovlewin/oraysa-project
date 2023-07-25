@@ -1,4 +1,4 @@
-import Masechtot from "./Masechtot"
+import MasechtotOptions from "./MasechesOption"
 import DafOption from "./DafOption"
 function Selection({
     selectedMaesechta,
@@ -11,14 +11,15 @@ function Selection({
 }) {
     return (
         <section className='border-2 flex space-x-4 py-4 px-10 bg-zinc-200 items-center'>
-            <label className='text-sky-800 font-semibold' htmlFor="option-select">Select a Amud:</label>
-            <select className=' rounded p-1 w-28 bg-sky-700 text-zinc-100 border border-gray-800 hover:d' id="option-select1" value={selectedMaesechta} onChange={handleMasechta}>
-                <Masechtot />
+            <label htmlFor="option-select" className='text-sky-800 font-semibold'>Select a Amud:</label>
+            <select value={selectedMaesechta} onChange={handleMasechta} className=' text-center rounded p-1 w-28 bg-sky-700 text-zinc-100 border border-gray-800 hover:d'>
+                <MasechtotOptions />
             </select>
-            <select className='p-1 w-16 rounded bg-sky-700 text-zinc-100 border border-gray-800' id="option-select2" value={selectedDaf} onChange={handleDaf} placeholder='מסכת' >
+            <select value={selectedDaf} onChange={handleDaf} className=' text-center p-1 w-28 rounded bg-sky-700 text-zinc-100 border border-gray-800'>
                 <DafOption dafim={dafim} />
             </select>
-            <select value={selectedAmud} onChange={handleAmud} className='p-1 w-14 rounded bg-sky-700 text-zinc-100 border border-gray-800'>
+            <select value={selectedAmud} onChange={handleAmud} className=' text-center p-1 w-28 rounded bg-sky-700 text-zinc-100 border border-gray-800'>
+                <option value={null}>בחר עמוד</option>
                 <option value={0}>ע"א</option>
                 <option value={1}>ע"ב</option>
             </select>

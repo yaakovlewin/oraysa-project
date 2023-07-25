@@ -30,7 +30,7 @@ const numbers = {
     'תתר': 1000
 };
 
-function numerize(letter) {
+function gematria(letter) {
     let numericValue = 0;
     for (let i = 0; i < letter.length; i++) {
         numericValue += numbers[letter.charAt(i)] || 0;
@@ -38,4 +38,4 @@ function numerize(letter) {
     return numericValue;
 }
 
-export default numerize;
+export default gematria;
