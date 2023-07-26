@@ -44,3 +44,25 @@ body {
     margin: 0;
     padding: 0;
 }
+
+main {
+    position: relative;
+    height: 85vh;
+    width: 100%;
+}
+
+main::before {
+    content: "";
+    display: block;
+    background-image: url(assets/menachem-weinreb---ACTwRDfkY-unsplash.jpg);
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(13, 12, 12, 0.8);
+    opacity: 0.3;
+    /* filter: blur(3px); */
+    z-index: -1;
+}

@@ -1,12 +1,8 @@
-import hebDateConvert from './hebcal-API.js'
-
 let countFromStartingDate = (days, startingDate) => {
 
     // Create a new Date object and add the number of days
     let endDate = new Date(startingDate.getTime() + (days * 86400000));
-
-    // Output the new date in ISO format (YYYY-MM-DD)
-    return endDate.toISOString().slice(0, 10);
+    return endDate
 }
 
 
@@ -27,7 +23,8 @@ export default function calculateDate(activeDaysSum, startDate) {
     let workingDaysOfWeek = 5
     let daysPast = addNonWorkingDays(activeDaysSum, workingDaysOfWeek, startingDate)
     let date = countFromStartingDate(daysPast, startingDate)
-    let hebDate = hebDateConvert(date)
-    return { hebDate, date }
+    let dateStr = date.toISOString().slice(0, 10);
+    let day = date.getDay()
+    return { dateStr, day }
 }
 

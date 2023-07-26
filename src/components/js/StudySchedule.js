@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import data from '../../js/data'
-import calcDate from '../../js/calculateGeorgienDate';
+import getDates from '../../js/getDates';
 import gematria from '../../js/letter2-gematria'
-import Display from './Display';
+import DateDisplay from './DateDisplay';
 import Calendar from './Calendar';
 import Selection from './Selection';
 
@@ -13,6 +13,8 @@ function StudySchedule() {
     const [dafim, setDafim] = useState(0)
     const [hebDate, setHebDate] = useState('')
     const [gregorianDate, setGregorianDate] = useState('')
+    const [engDay, setEngDay] = useState('')
+    const [hebrewDay, setHebrewDay] = useState('')
 
     const handleMasechta = (event) => {
         setSelectedMasechta(event.target.value);
@@ -33,22 +35,24 @@ function StudySchedule() {
         } else {
             setDafim(0)
             setSelectedDaf("")
-            setSelectedAmud(null)
+            setSelectedAmud('בחר עמוד')
         }
     }, [selectedMasechta])
 
     useEffect(() => {
-        console.log(selectedMasechta, selectedDaf, selectedAmud)
         if (selectedMasechta !== "בחר מסכת" && selectedDaf !== "בחר דף" && selectedAmud !== "בחר עמוד") {
-            let currentDate = calcDate(selectedMasechta, gematria(selectedDaf), Number(selectedAmud))
-            setGregorianDate(currentDate.date)
-            currentDate.hebDate.then((data) => { setHebDate(data.hebrew) })
+            let { dateStr, hebDate, engDay, hebDay } = getDates(selectedMasechta, gematria(selectedDaf), Number(selectedAmud))
+
+            setGregorianDate(dateStr)
+            hebDate.then((data) => { setHebDate(data.hebrew) })
+            setEngDay(engDay)
+            setHebrewDay(hebDay)
         } else {
             setGregorianDate('')
             setHebDate('')
+            setEngDay('')
+            setHebrewDay('')
         }
-
-
     }, [selectedMasechta, selectedDaf, selectedAmud])
 
 
@@ -62,9 +66,13 @@ function StudySchedule() {
                 handleAmud={handleAmud}
                 dafim={dafim} />
 
-            <Display hebDate={hebDate} gregorianDate={gregorianDate} selectedMasechta={selectedMasechta}
-                selectedDaf={selectedDaf}
-                selectedAmud={selectedAmud} />
+            <DateDisplay
+                hebDate={hebDate}
+                gregorianDate={gregorianDate}
+                hebrewDay={hebrewDay}
+                engDay={engDay}
+            />
+
             {/* <Calendar /> */}
 
         </div>

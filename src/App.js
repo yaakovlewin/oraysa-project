@@ -10,12 +10,15 @@ function App() {
       <header>
         <Nav />
       </header>
-      <section>
-        <SiteInstruction />
-      </section>
-      <main className='flex justify-around'>
-        <StudySchedule />
+      <main>
+        <section>
+          <SiteInstruction />
+        </section>
+        <section className='flex justify-around'>
+          <StudySchedule />
+        </section>
       </main>
+
     </>
 
   )
