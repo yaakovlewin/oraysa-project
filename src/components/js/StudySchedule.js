@@ -9,7 +9,7 @@ import Selection from './Selection';
 function StudySchedule() {
     const [selectedMasechta, setSelectedMasechta] = useState("בחר מסכת");
     const [selectedDaf, setSelectedDaf] = useState("בחר דף");
-    const [selectedAmud, setSelectedAmud] = useState(null)
+    const [selectedAmud, setSelectedAmud] = useState("בחר עמוד")
     const [dafim, setDafim] = useState(0)
     const [hebDate, setHebDate] = useState('')
     const [gregorianDate, setGregorianDate] = useState('')
