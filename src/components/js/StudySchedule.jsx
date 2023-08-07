@@ -3,7 +3,6 @@ import data from "../../js/data";
 import getDates from "../../js/getDates";
 import gematria from "../../js/letter2-gematria";
 import DateDisplay from "./DateDisplay";
-import Calendar from "./Calendar";
 import Selection from "./Selection";
 
 function StudySchedule() {
@@ -85,8 +84,6 @@ function StudySchedule() {
                 hebrewDay={hebrewDay}
                 engDay={engDay}
             />
-
-            <Calendar />
         </div>
     );
 }
