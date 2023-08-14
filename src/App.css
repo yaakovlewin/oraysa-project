@@ -47,6 +47,7 @@ body {
 
 main {
     display: inline;
+    position: relative;
     height: 87vh;
     width: 100%;
 }
