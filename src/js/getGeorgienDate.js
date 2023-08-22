@@ -19,6 +19,7 @@ function addNonWorkingDays(totalWorkingDays, workingDaysOfWeek, startingDate) {
 }
 
 export default function calculateDate(activeDaysSum, startDate) {
+    console.log(`activeDaysSum: ${activeDaysSum}`)
     const startingDate = new Date(startDate);
     let workingDaysOfWeek = 5
     let daysToAdd = addNonWorkingDays(activeDaysSum, workingDaysOfWeek, startingDate)
