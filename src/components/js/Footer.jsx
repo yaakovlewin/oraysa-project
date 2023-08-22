@@ -25,7 +25,7 @@ export default function Footer() {
             <section className="p-3">
                 <p className="text-center text-gray-400 text-xs">
                     Created by{" "}
-                    <a href="/" className="text-blue-500">
+                    <a href="tel:+447548091286" className="text-blue-500">
                         @Yanki F +44 7548 091 286
                     </a>
                 </p>

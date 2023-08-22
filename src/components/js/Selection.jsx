@@ -8,6 +8,7 @@ function Selection({
     handleDaf,
     handleAmud,
     dafim,
+    twoAmudim,
 }) {
     return (
         <>
@@ -44,7 +45,7 @@ function Selection({
                 >
                     <option value={"בחר עמוד"}>בחר עמוד</option>
                     <option value={1}>ע"א</option>
-                    <option value={2}>ע"ב</option>
+                    {twoAmudim && <option value={2}>ע"ב</option>}
                 </select>
             </section>
             {selectedMasechta !== "בחר מסכת" &&
