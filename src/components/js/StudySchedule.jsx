@@ -73,10 +73,10 @@ function StudySchedule() {
                 selectedMasechta={selectedMasechta}
                 selectedDaf={selectedDaf}
                 selectedAmud={selectedAmud}
+                dafim={dafim}
                 handleMasechta={handleMasechta}
                 handleDaf={handleDaf}
                 handleAmud={handleAmud}
-                dafim={dafim}
             />
 
             <DateDisplay
