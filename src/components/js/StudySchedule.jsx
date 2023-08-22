@@ -32,7 +32,7 @@ function StudySchedule() {
                 data.find((element) => element.name === selectedMasechta).pages
             );
             setSelectedDaf("ב");
-            setSelectedAmud(0);
+            setSelectedAmud(1);
         } else {
             setDafim(0);
             setSelectedDaf("");
@@ -48,7 +48,7 @@ function StudySchedule() {
         ) {
             let { dateStr, hebDate, engDay, hebDay } = getDates(
                 selectedMasechta,
-                gematria(selectedDaf),
+                gematria(selectedDaf) - 1,
                 Number(selectedAmud)
             );
 

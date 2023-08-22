@@ -1,40 +1,40 @@
 
 var masechtot = [{
     name: 'ברכות',
-    pages: 62
+    pages: 63.5
 }, {
     name: 'שבת',
     pages: 156
 }, {
     name: 'עירובין',
-    pages: 104
+    pages: 103.5
 }, {
     name: 'פסחים',
     pages: 120
 }, {
     name: 'ר"ה',
-    pages: 34
+    pages: 33.5
 }, {
     name: 'יומא',
-    pages: 87
+    pages: 86.5
 }, {
     name: 'סוכה',
     pages: 55
 }, {
     name: 'ביצה',
-    pages: 39
+    pages: 38.5
 }, {
     name: 'תענית',
-    pages: 30
+    pages: 29.5
 }, {
     name: 'מגילה',
-    pages: 31
+    pages: 30.5
 }, {
     name: 'מועד קטן',
-    pages: 28
+    pages: 27.5
 }, {
     name: 'חגיגה',
-    pages: 26
+    pages: 25.5
 }, {
     name: 'יבמות',
     pages: 121
@@ -55,22 +55,22 @@ var masechtot = [{
     pages: 89
 }, {
     name: 'קידושין',
-    pages: 81
+    pages: 80.5
 }, {
     name: 'בבא קמא',
     pages: 118
 }, {
     name: 'בבא מציעא',
-    pages: 118
+    pages: 117
 }, {
     name: 'בבא בתרא',
-    pages: 175
+    pages: 174.5
 }, {
     name: 'סנהדרין',
-    pages: 112
+    pages: 111.5
 }, {
     name: 'מכות',
-    pages: 23
+    pages: 22.5
 }, {
     name: 'שבועות',
     pages: 48
@@ -79,7 +79,7 @@ var masechtot = [{
     pages: 75
 }, {
     name: 'הוריות',
-    pages: 13
+    pages: 12.5
 }, {
     name: 'זבחים',
     pages: 119
