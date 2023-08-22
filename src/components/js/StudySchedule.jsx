@@ -36,7 +36,8 @@ function StudySchedule() {
     useEffect(() => {
         if (selectedMasechta !== "בחר מסכת") {
             setDafim(
-                data.find((element) => element.name === selectedMasechta).pages
+                data.find((element) => element.name === selectedMasechta)
+                    .pages + 1
             );
             setSelectedDaf("ב");
             setSelectedAmud(1);

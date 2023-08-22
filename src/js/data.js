@@ -1,7 +1,7 @@
 
 var masechtot = [{
     name: 'ברכות',
-    pages: 63.5
+    pages: 62.5
 }, {
     name: 'שבת',
     pages: 156
