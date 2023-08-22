@@ -20,7 +20,7 @@ function StudySchedule() {
     };
     const handleDaf = (event) => {
         setSelectedDaf(event.target.value);
-        setSelectedAmud(0);
+        setSelectedAmud(1);
     };
     const handleAmud = (event) => {
         setSelectedAmud(event.target.value);
