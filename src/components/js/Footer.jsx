@@ -26,7 +26,7 @@ export default function Footer() {
                 <p className="text-center text-gray-400 text-xs">
                     Created by{" "}
                     <a href="/" className="text-blue-500">
-                        @Yanki
+                        @Yanki F +44 7548 091 286
                     </a>
                 </p>
                 <p className="text-center text-gray-400 text-xs">
