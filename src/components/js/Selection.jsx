@@ -1,5 +1,8 @@
 import MasechtotOptions from "./MasechesOption";
 import DafOption from "./DafOption";
+
+import gematria from "../../js/letter2-gematria";
+
 function Selection({
     selectedMasechta,
     selectedDaf,
@@ -45,7 +48,9 @@ function Selection({
                 >
                     <option value={"בחר עמוד"}>בחר עמוד</option>
                     <option value={1}>ע"א</option>
-                    {twoAmudim && <option value={2}>ע"ב</option>}
+                    {gematria(selectedDaf) <= Math.floor(dafim) && (
+                        <option value={2}>ע"ב</option>
+                    )}
                 </select>
             </section>
             {selectedMasechta !== "בחר מסכת" &&

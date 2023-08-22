@@ -10,7 +10,6 @@ function StudySchedule() {
     const [selectedDaf, setSelectedDaf] = useState("בחר דף");
     const [selectedAmud, setSelectedAmud] = useState("בחר עמוד");
     const [dafim, setDafim] = useState(0);
-    const [twoAmudim, setTwoAmudim] = useState(true); // for now
     const [hebDate, setHebDate] = useState("");
     const [gregorianDate, setGregorianDate] = useState("");
     const [engDay, setEngDay] = useState("");
@@ -26,12 +25,6 @@ function StudySchedule() {
     const handleAmud = (event) => {
         setSelectedAmud(event.target.value);
     };
-
-    useEffect(() => {
-        gematria(selectedDaf) > Math.floor(dafim)
-            ? setTwoAmudim(false)
-            : setTwoAmudim(true);
-    }, [selectedDaf, dafim]);
 
     useEffect(() => {
         if (selectedMasechta !== "בחר מסכת") {
@@ -84,7 +77,6 @@ function StudySchedule() {
                 handleDaf={handleDaf}
                 handleAmud={handleAmud}
                 dafim={dafim}
-                twoAmudim={twoAmudim}
             />
 
             <DateDisplay
