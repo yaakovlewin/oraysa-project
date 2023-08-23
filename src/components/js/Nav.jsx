@@ -6,7 +6,7 @@ export default function Nav() {
             <img
                 alt="logo"
                 src={logo}
-                className=" m-auto py-3 sm:pl-24 sm:ml-20"
+                className=" m-auto my-1 md:pl-24 md:ml-20"
             ></img>
         </nav>
     );
