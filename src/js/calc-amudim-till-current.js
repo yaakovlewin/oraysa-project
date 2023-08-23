@@ -6,8 +6,6 @@ export default function getAmudim(maseches, daf, amud) {
     const currentMasechesAmudim = ((daf - 1) * 2) + amud - 1;
     const previousMasechesAmudim = masechtot.slice(0, masechesIndex).reduce((total, { pages }) => total + (pages * 2), 0);
     const totalAmudim = currentMasechesAmudim + (maseches !== 'ברכות' ? previousMasechesAmudim : 0);
-    console.log(`current maseches amudim: ${currentMasechesAmudim}`);
-    console.log(`previous maseches amudim: ${previousMasechesAmudim}`);
     return totalAmudim;
 }
 

@@ -4,11 +4,9 @@ function addDaysToStartDate(date, days) {
     return new Date(date.getTime() + days * MILLISECONDS_PER_DAY);
 }
 
-
 function addNonWorkingDays(totalWorkingDays, workingDaysOfWeek, startingDate) {
     let fullWeeks = Math.floor(totalWorkingDays / workingDaysOfWeek) * 7
     let remainingDays = totalWorkingDays % workingDaysOfWeek;
-
 
     // if odd days of full weeks roll over to a new week add 2 days.
     if ((startingDate.getDay() + (remainingDays)) > 4) {
