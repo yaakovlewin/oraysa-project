@@ -35,7 +35,6 @@ export default function MonthView({
         let date = new Date(day.date);
         handleDateChange(date);
     }
-    console.log(`selectedDay: ${selectedDay}`);
 
     function handleDayDoubleClick(day) {
         console.log("double click " + day.date);
@@ -52,7 +51,6 @@ export default function MonthView({
         } else {
             handleMonthChange(selectedMonth - 1);
         }
-        console.log(selectedMonth);
     }
 
     function handleNextMonthClick() {
@@ -107,12 +105,18 @@ export default function MonthView({
                     <ol className="divide-y divide-gray-100 overflow-hidden rounded-lg bg-white text-sm shadow ring-1 ring-black ring-opacity-5">
                         {selectedDay.events.map((event) => (
                             <li
-                                key={event.id}
+                                key={
+                                    event.id ??
+                                    (
+                                        Math.random() * 1000000000000000000 +
+                                        1
+                                    ).toString()
+                                }
                                 className="group flex p-4 pr-6 focus-within:bg-gray-50 hover:bg-gray-50"
                             >
                                 <div className="flex-auto">
                                     <p className="font-semibold text-gray-900">
-                                        {event.name}
+                                        {event.name ? event.name : event}
                                     </p>
                                     <time
                                         dateTime={event.datetime}
