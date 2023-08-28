@@ -10,7 +10,6 @@ const convertDate = async (firstDate, lastDate) => {
         return response.data;
     } catch (error) {
         // Handle any potential errors here
-        console.error('Error:', error.message);
         throw error;
     }
 };

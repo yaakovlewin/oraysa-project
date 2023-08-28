@@ -35,29 +35,28 @@ function StudySchedule() {
     };
 
     useEffect(() => {
-        console.log("fetching days");
         generateDates(selectedMonth, selectedYear)
             .then((fetchedDays) => {
                 setDays(fetchedDays);
                 setError(null); // Clear any previous errors
             })
             .catch((error) => {
+                const genericErrorMessage =
+                    "An error occurred while fetching the days. Please try again later.";
+                const networkErrorMessage =
+                    "An error occurred while fetching the days. Please check your network or try again later.";
+
                 if (axios.isAxiosError(error)) {
                     const { response } = error;
                     if (response) {
                         const { data, status } = response;
-                        setError(
-                            `An error occurred while fetching the days. Status: ${status}. Error: ${data}`
-                        ); // Set the error message with status and data
+                        const errorMessage = `An error occurred while fetching the days. Status: ${status}. Error: ${data}`;
+                        setError(errorMessage); // Set the error message with status and data
                     } else {
-                        setError(
-                            "An error occurred while fetching the days. Please try again later."
-                        ); // Set a generic error message
+                        setError(genericErrorMessage); // Set a generic error message
                     }
                 } else {
-                    setError(
-                        "An error occurred while fetching the days. Please try again later."
-                    ); // Set a generic error message
+                    setError(networkErrorMessage); // Set a generic error message
                 }
             });
     }, [selectedMonth, selectedYear]);
@@ -95,7 +94,6 @@ function StudySchedule() {
     }, [selectedMasechta, selectedDaf, selectedAmud]);
 
     useEffect(() => {
-        console.log("selectedDate changed");
         const foundDay = days.find(
             (day) => DateTime.fromJSDate(selectedDate).toISODate() === day.date
         );

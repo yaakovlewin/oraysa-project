@@ -69,7 +69,7 @@ export default function MonthCalendar({
                                         ? "bg-white"
                                         : "bg-slate-100 text-zinc-500 text-opacity-60",
                                     selectedDay === day
-                                        ? "border-2 border-indigo-600"
+                                        ? "border-4 border-indigo-600 rounded scale-105 z-10 py-0.5"
                                         : "border-l-2 border-t-2 border-neutral-400",
                                     "relative px-3 py-2 hover:bg-gray-100 h-28  max-w-xs w-full "
                                 )}
@@ -116,7 +116,7 @@ export default function MonthCalendar({
                                                             "flex-auto truncate leading-tight rounded  text-white my-0.5 px-2 group-hover:text-indigo-600"
                                                         )}
                                                     >
-                                                        {event.name}
+                                                        {event.name ?? event}
                                                     </p>
                                                     <time
                                                         dateTime={
@@ -130,8 +130,8 @@ export default function MonthCalendar({
                                             </li>
                                         ))}
                                         {day.events.length > 3 && (
-                                            <li className="text-gray-500">
-                                                + {day.events.length - 2} more
+                                            <li className="text-gray-600 font-semibold leading-4">
+                                                + {day.events.length - 3} more
                                             </li>
                                         )}
                                     </ol>
