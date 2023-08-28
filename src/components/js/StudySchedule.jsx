@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { DateTime } from "luxon";
+import axios from "axios";
+// js imports
 import masechtot from "../../js/masectot";
 import getDates from "../../js/getDates";
 import gematria from "../../js/letter2-gematria";
-import DateDisplay from "./DateDisplay";
 import Selection from "./Selection";
 import Calendar from "./Calendar";
 import generateDates from "../../js/datesGenerator";
-import { DateTime } from "luxon";
 
 function StudySchedule() {
     const [selectedMasechta, setSelectedMasechta] = useState("בחר מסכת");
@@ -20,6 +21,7 @@ function StudySchedule() {
     );
     const [days, setDays] = useState([]);
     const [selectedDay, setSelectedDay] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleSelectMasechta = (event) => {
         setSelectedMasechta(event.target.value);
@@ -31,13 +33,32 @@ function StudySchedule() {
     const handleSelectAmud = (event) => {
         setSelectedAmud(event.target.value);
     };
+
     useEffect(() => {
         console.log("fetching days");
         generateDates(selectedMonth, selectedYear)
-            .then((fetchedDays) => setDays(fetchedDays))
+            .then((fetchedDays) => {
+                setDays(fetchedDays);
+                setError(null); // Clear any previous errors
+            })
             .catch((error) => {
-                // Handle any errors from generateDates or setDays
-                console.error(error);
+                if (axios.isAxiosError(error)) {
+                    const { response } = error;
+                    if (response) {
+                        const { data, status } = response;
+                        setError(
+                            `An error occurred while fetching the days. Status: ${status}. Error: ${data}`
+                        ); // Set the error message with status and data
+                    } else {
+                        setError(
+                            "An error occurred while fetching the days. Please try again later."
+                        ); // Set a generic error message
+                    }
+                } else {
+                    setError(
+                        "An error occurred while fetching the days. Please try again later."
+                    ); // Set a generic error message
+                }
             });
     }, [selectedMonth, selectedYear]);
 
@@ -83,6 +104,7 @@ function StudySchedule() {
 
     return (
         <div className="flex-row py-4 ">
+            {error && <p>{error}</p>}
             <Selection
                 selectedMasechta={selectedMasechta}
                 selectedDaf={selectedDaf}
@@ -92,13 +114,6 @@ function StudySchedule() {
                 handleSelectDaf={handleSelectDaf}
                 handleSelectAmud={handleSelectAmud}
             />
-
-            {/* <DateDisplay
-                hebDate={hebDate}
-                gregorianDate={gregorianDate}
-                hebrewDay={hebrewDay}
-                engDay={engDay}
-            /> */}
             <Calendar
                 selectedDate={selectedDate}
                 selectedMonth={selectedMonth}

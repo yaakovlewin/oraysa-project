@@ -150,7 +150,7 @@ export default function MonthCalendar({
                                         ? "bg-white"
                                         : "bg-gray-200",
                                     (day === selectedDay || day.isToday) &&
-                                        "font-semibold",
+                                        "font-semibold px-0.5",
                                     day === selectedDay && "text-white",
                                     day !== selectedDay &&
                                         day.isToday &&
@@ -163,7 +163,7 @@ export default function MonthCalendar({
                                         !day.isCurrentMonth &&
                                         !day.isToday &&
                                         "text-gray-500",
-                                    "flex h-14 flex-col px-3 py-2 hover:bg-gray-100 focus:z-10 border-l-2 border-t-2 border-neutral-400"
+                                    "flex h-14 flex-col px-1 sm:px-3 py-2 hover:bg-gray-100 focus:z-10 border-l-2 border-t-2 border-neutral-400"
                                 )}
                             >
                                 <section className="flex w-full">
@@ -174,10 +174,10 @@ export default function MonthCalendar({
                                                 "flex h-6 w-6 items-center justify-center rounded-full",
                                             day === selectedDay &&
                                                 day.isToday &&
-                                                "bg-indigo-600",
+                                                "bg-indigo-600 p-1 mr-auto text-white",
                                             day === selectedDay &&
                                                 !day.isToday &&
-                                                "bg-gray-900",
+                                                "bg-gray-900 p-1 mr-auto text-white",
                                             "mr-auto"
                                         )}
                                     >
@@ -187,7 +187,7 @@ export default function MonthCalendar({
                                             .replace(/^0/, "")}
                                     </time>
                                     {day.hebDate.heDateParts.d && (
-                                        <p className=" ml-auto text-black font-medium">
+                                        <p className=" ml-auto text-black font-medium pl-1">
                                             {day.hebDate.heDateParts.d}
                                         </p>
                                     )}

@@ -1,5 +1,5 @@
 import { isAfter, isSameDay } from "date-fns";
-import { daysBetweenDates, isAfterDate, isSameDate } from "./checkDates";
+import { daysBetweenDates } from "./checkDates";
 import masechtot from "./masectot";
 import getPageOfStudyDay from "./getPageOfStudyDay";
 import studyEventsGenerator from "./studyEventGenarator";

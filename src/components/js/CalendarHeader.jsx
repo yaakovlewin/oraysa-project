@@ -55,14 +55,14 @@ export default function CalendarHeader({
     hebDate,
 }) {
     return (
-        <header className="flex items-center justify-between bg-neutral-200 border-b border-gray-200 px-6 py-4 lg:flex-none">
-            <h1 className="text-lg font-semibold leading-6 text-gray-900">
+        <header className="flex items-center justify-between bg-neutral-200 border-b border-gray-200 pl-0.5 pr-2 sm:px-6 py-4 lg:flex-none">
+            <h1 className="text-sm sm:text-lg sm:font-semibold leading-6 text-gray-900">
                 <time dateTime="2022-01">
                     {getMonthName(selectedMonth)} {selectedYear}
                 </time>
             </h1>
             {hebDate && hebDate.length > 1 && (
-                <h1 className="text-lg font-semibold leading-6 text-gray-900">
+                <h1 className="text-sm sm:text-lg sm:font-semibold sm:leading-6 text-gray-900">
                     {`${hebDate[0].heDateParts.y} ${hebDate[0].heDateParts.m} - ${hebDate[1].heDateParts.m}`}
                 </h1>
             )}
@@ -129,8 +129,7 @@ export default function CalendarHeader({
                                 <div className="py-1">
                                     <Menu.Item>
                                         {({ active }) => (
-                                            <a
-                                                href="#"
+                                            <div
                                                 className={classNames(
                                                     active
                                                         ? "bg-gray-100 text-gray-900"
@@ -139,13 +138,12 @@ export default function CalendarHeader({
                                                 )}
                                             >
                                                 Day view
-                                            </a>
+                                            </div>
                                         )}
                                     </Menu.Item>
                                     <Menu.Item>
                                         {({ active }) => (
-                                            <a
-                                                href="#"
+                                            <div
                                                 className={classNames(
                                                     active
                                                         ? "bg-gray-100 text-gray-900"
@@ -154,7 +152,7 @@ export default function CalendarHeader({
                                                 )}
                                             >
                                                 Week view
-                                            </a>
+                                            </div>
                                         )}
                                     </Menu.Item>
                                     <Menu.Item>
@@ -173,8 +171,7 @@ export default function CalendarHeader({
                                     </Menu.Item>
                                     <Menu.Item>
                                         {({ active }) => (
-                                            <a
-                                                href="#"
+                                            <div
                                                 className={classNames(
                                                     active
                                                         ? "bg-gray-100 text-gray-900"
@@ -183,7 +180,7 @@ export default function CalendarHeader({
                                                 )}
                                             >
                                                 Year view
-                                            </a>
+                                            </div>
                                         )}
                                     </Menu.Item>
                                 </div>
@@ -220,8 +217,7 @@ export default function CalendarHeader({
                             <div className="py-1">
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
-                                            href="#"
+                                        <div
                                             className={classNames(
                                                 active
                                                     ? "bg-gray-100 text-gray-900"
@@ -230,7 +226,7 @@ export default function CalendarHeader({
                                             )}
                                         >
                                             Create event
-                                        </a>
+                                        </div>
                                     )}
                                 </Menu.Item>
                             </div>
@@ -254,8 +250,7 @@ export default function CalendarHeader({
                             <div className="py-1">
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
-                                            href="#"
+                                        <div
                                             className={classNames(
                                                 active
                                                     ? "bg-gray-100 text-gray-900"
@@ -264,13 +259,12 @@ export default function CalendarHeader({
                                             )}
                                         >
                                             Day view
-                                        </a>
+                                        </div>
                                     )}
                                 </Menu.Item>
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
-                                            href="#"
+                                        <div
                                             className={classNames(
                                                 active
                                                     ? "bg-gray-100 text-gray-900"
@@ -279,13 +273,12 @@ export default function CalendarHeader({
                                             )}
                                         >
                                             Week view
-                                        </a>
+                                        </div>
                                     )}
                                 </Menu.Item>
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
-                                            href="#"
+                                        <div
                                             className={classNames(
                                                 active
                                                     ? "bg-gray-100 text-gray-900"
@@ -294,13 +287,12 @@ export default function CalendarHeader({
                                             )}
                                         >
                                             Month view
-                                        </a>
+                                        </div>
                                     )}
                                 </Menu.Item>
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <a
-                                            href="#"
+                                        <div
                                             className={classNames(
                                                 active
                                                     ? "bg-gray-100 text-gray-900"
@@ -309,7 +301,7 @@ export default function CalendarHeader({
                                             )}
                                         >
                                             Year view
-                                        </a>
+                                        </div>
                                     )}
                                 </Menu.Item>
                             </div>
