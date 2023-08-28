@@ -68,9 +68,10 @@ export default function MonthCalendar({
                                     day.isCurrentMonth
                                         ? "bg-white"
                                         : "bg-slate-100 text-zinc-500 text-opacity-60",
-                                    selectedDay === day &&
-                                        "border-2 border-indigo-600",
-                                    "relative px-3 py-2 hover:bg-gray-100 h-28  max-w-xs w-full border-l-2 border-t-2 border-neutral-400"
+                                    selectedDay === day
+                                        ? "border-2 border-indigo-600"
+                                        : "border-l-2 border-t-2 border-neutral-400",
+                                    "relative px-3 py-2 hover:bg-gray-100 h-28  max-w-xs w-full "
                                 )}
                             >
                                 <time
