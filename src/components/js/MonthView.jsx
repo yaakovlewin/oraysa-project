@@ -12,6 +12,7 @@ export default function MonthView({
     selectedMonth,
     selectedYear,
     selectedDay,
+    setSelectedDay,
     setSelectedDate,
     setSelectedMonth,
     setSelectedYear,
@@ -98,6 +99,7 @@ export default function MonthView({
                 handleDayDoubleClick={handleDayDoubleClick}
                 handleDayRightClick={handleDayRightClick}
                 selectedDay={selectedDay}
+                setSelectedDay={setSelectedDay}
                 classNames={classNames}
             />
             {(selectedDay?.events ?? []).length > 0 && (
@@ -112,7 +114,9 @@ export default function MonthView({
                                         1
                                     ).toString()
                                 }
-                                className="group flex p-4 pr-6 focus-within:bg-gray-50 hover:bg-gray-50"
+                                className={`group flex p-4 pr-6 ${
+                                    event.backgroundColor || "bg-orange-400"
+                                } bg-opacity-50 focus-within:bg-gray-50 hover:bg-gray-50`}
                             >
                                 <div className="flex-auto">
                                     <p className="font-semibold text-gray-900">

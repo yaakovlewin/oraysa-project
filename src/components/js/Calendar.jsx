@@ -11,6 +11,7 @@ export default function Calendar({
     setSelectedMasechta,
     setSelectedDaf,
     setSelectedAmud,
+    setSelectedDay,
     days,
 }) {
     return (
@@ -23,6 +24,7 @@ export default function Calendar({
                 setSelectedDate={setSelectedDate}
                 setSelectedMonth={setSelectedMonth}
                 setSelectedYear={setSelectedYear}
+                setSelectedDay={setSelectedDay}
                 // setSelectedMasechta={setSelectedMasechta}
                 // setSelectedDaf={setSelectedDaf}
                 // setSelectedAmud={setSelectedAmud}

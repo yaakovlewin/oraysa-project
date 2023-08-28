@@ -62,12 +62,12 @@ export default function CalendarHeader({
                 </time>
             </h1>
             {hebDate && hebDate.length > 1 && (
-                <h1 className="text-sm sm:text-lg sm:font-semibold sm:leading-6 text-gray-900">
+                <h1 className="text-sm sm:text-lg sm:font-semibold sm:leading-6 text-gray-900 p-1">
                     {`${hebDate[0].heDateParts.y} ${hebDate[0].heDateParts.m} - ${hebDate[1].heDateParts.m}`}
                 </h1>
             )}
             <div className="flex items-center">
-                <div className="relative flex items-center rounded-md bg-white shadow-sm md:items-stretch">
+                <div className="relative flex items-center rounded-md bg-white shadow-sm lg:items-stretch">
                     <div
                         className="pointer-events-none absolute inset-0 rounded-md ring-1 ring-inset ring-gray-300"
                         aria-hidden="true"
@@ -75,7 +75,7 @@ export default function CalendarHeader({
                     <button
                         type="button"
                         onClick={handlePrevMonthClick}
-                        className="flex items-center justify-center rounded-l-md py-2 pl-3 pr-4 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50"
+                        className="flex items-center justify-center rounded-l-md py-2 pl-3 pr-4 text-gray-400 hover:text-gray-500 focus:relative lg:w-9 lg:px-2 lg:hover:bg-gray-50"
                     >
                         <span className="sr-only">Previous month</span>
                         <ChevronLeftIcon
@@ -86,15 +86,15 @@ export default function CalendarHeader({
                     <button
                         type="button"
                         onClick={handleTodayClick}
-                        className="hidden px-3.5 text-sm font-semibold text-gray-900 hover:bg-gray-50 focus:relative md:block"
+                        className="hidden px-3.5 text-sm font-semibold text-gray-900 hover:bg-gray-50 focus:relative lg:block"
                     >
                         Today
                     </button>
-                    <span className="relative -mx-px h-5 w-px bg-gray-300 md:hidden" />
+                    <span className="relative -mx-px h-5 w-px bg-gray-300 lg:hidden" />
                     <button
                         type="button"
                         onClick={handleNextMonthClick}
-                        className="flex items-center justify-center rounded-r-md py-2 pl-4 pr-3 text-gray-400 hover:text-gray-500 focus:relative md:w-9 md:px-2 md:hover:bg-gray-50"
+                        className="flex items-center justify-center rounded-r-md py-2 pl-4 pr-3 text-gray-400 hover:text-gray-500 focus:relative lg:w-9 lg:px-2 lg:hover:bg-gray-50"
                     >
                         <span className="sr-only">Next month</span>
                         <ChevronRightIcon
@@ -103,7 +103,7 @@ export default function CalendarHeader({
                         />
                     </button>
                 </div>
-                <div className="hidden md:ml-4 md:flex md:items-center">
+                <div className="hidden lg:ml-4 lg:flex lg:items-center">
                     <Menu as="div" className="relative">
                         <Menu.Button
                             type="button"
@@ -190,12 +190,12 @@ export default function CalendarHeader({
                     <div className="ml-6 h-6 w-px bg-gray-300" />
                     <button
                         type="button"
-                        className="ml-6 rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="ml-6 rounded-md bg-sky-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
                     >
                         Add event
                     </button>
                 </div>
-                <Menu as="div" className="relative ml-6 md:hidden">
+                <Menu as="div" className="relative ml-6 lg:hidden">
                     <Menu.Button className="-mx-2 flex items-center rounded-full border border-transparent p-2 text-gray-400 hover:text-gray-500">
                         <span className="sr-only">Open menu</span>
                         <EllipsisHorizontalIcon

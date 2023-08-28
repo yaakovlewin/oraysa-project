@@ -7,9 +7,9 @@ export default function studyEventsGenerator(events, date) {
         let start = date;
         let end = date;
         let allDay = true;
-        let backgroundColor = '#f56954'; //red
+        let backgroundColor = 'bg-cyan-500';
         let borderColor = '#f56954'; //red
-        let textColor = '#000000'; //black
+        let textColor = 'text-white'; //black
         let display = 'background';
         let props = { masechet: event.data.masechet, daf: event.data.daf, amud: event.data.amud };
 

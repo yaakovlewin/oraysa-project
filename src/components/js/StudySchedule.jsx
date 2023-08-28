@@ -101,7 +101,7 @@ function StudySchedule() {
     }, [selectedDate, days]);
 
     return (
-        <div className="flex-row py-4 ">
+        <div className="flex-row py-4 mx-4">
             {error && <p>{error}</p>}
             <Selection
                 selectedMasechta={selectedMasechta}
@@ -124,6 +124,7 @@ function StudySchedule() {
                 setSelectedAmud={setSelectedAmud}
                 days={days}
                 selectedDay={selectedDay}
+                setSelectedDay={setSelectedDay}
             />
         </div>
     );
