@@ -7,7 +7,8 @@ let firstDafStartDate = '2020-01-05'; // 5780-04-08
 
 
 export default function getDates(maseches, daf, amud) {
-    let { dateStr, day } = getDate(getAmudim(maseches, daf, amud), firstDafStartDate)
+    let { date, day } = getDate(getAmudim(maseches, daf, amud), firstDafStartDate)
+    let dateStr = date.toISOString().slice(0, 10);
     let hebDate = hebDateConvert(dateStr)
 
     function getWeekDay(day) {
@@ -23,5 +24,5 @@ export default function getDates(maseches, daf, amud) {
     let engDay = getWeekDay(day)
     let hebDay = getHebrewWeekDay(day)
 
-    return { dateStr, hebDate, engDay, hebDay };
+    return { date, dateStr, hebDate, engDay, hebDay };
 }

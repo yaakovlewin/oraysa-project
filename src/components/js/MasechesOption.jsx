@@ -1,16 +1,16 @@
-import data from '../../js/data'
+import masechtot from "../../js/masectot";
 
 export default function MasechtotOptions() {
     return (
         <>
             <option value="בחר מסכת">בחר מסכת</option>
-            {
-                data.map(({ name }) => {
-                    return (
-                        <option value={name} key={name}>{name}</option>
-                    )
-                })
-            }
+            {masechtot.map(({ name }) => {
+                return (
+                    <option value={name} key={name}>
+                        {name}
+                    </option>
+                );
+            })}
         </>
-    )
+    );
 }

@@ -20,8 +20,7 @@ export default function calculateDate(activeDaysSum, startDate) {
     let workingDaysOfWeek = 5
     let daysToAdd = addNonWorkingDays(activeDaysSum, workingDaysOfWeek, startingDate)
     let date = addDaysToStartDate(startingDate, daysToAdd)
-    let dateStr = date.toISOString().slice(0, 10);
     let day = date.getDay()
-    return { dateStr, day }
+    return { date, day }
 }
 

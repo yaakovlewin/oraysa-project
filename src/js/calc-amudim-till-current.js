@@ -1,4 +1,4 @@
-import masechtot from "./data.js";
+import masechtot from "./masectot";
 export default function getAmudim(maseches, daf, amud) {
     // finds the index of the current maseches in the masechtot array
     const masechesIndex = masechtot.findIndex(element => element.name === maseches);
