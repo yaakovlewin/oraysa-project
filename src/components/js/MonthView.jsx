@@ -127,10 +127,10 @@ export default function MonthView({
                                         className="mt-2 flex items-center text-gray-700"
                                     >
                                         <ClockIcon
-                                            className="mr-2 h-5 w-5 text-gray-400"
+                                            className="mr-2 h-5 w-5 text-gray-400 bg-gray-100 rounded-full"
                                             aria-hidden="true"
                                         />
-                                        {event.time}
+                                        {event.time || "All Day"}
                                     </time>
                                 </div>
                                 <a
