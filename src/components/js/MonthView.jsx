@@ -59,7 +59,6 @@ export default function MonthView({
             handleMonthChange(0);
             handleYearChange(selectedYear + 1);
         } else handleMonthChange(selectedMonth + 1);
-        console.log(selectedMonth);
     }
 
     function handlePrevYearClick() {

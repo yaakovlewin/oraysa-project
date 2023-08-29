@@ -1,5 +1,9 @@
 import { ArrowsPointingInIcon } from "@heroicons/react/20/solid";
 
+import React, { useEffect, useRef } from "react";
+
+// ...
+
 export default function MonthCalendar({
     days,
     handleDayClick,
@@ -9,6 +13,25 @@ export default function MonthCalendar({
     setSelectedDay,
     classNames,
 }) {
+    const gridRef = useRef(null);
+    const handleOutsideClick = (e) => {
+        if (gridRef.current && gridRef.current.contains(e.target)) {
+            return; // If click originated from within the grid, exit early
+        }
+        setSelectedDay(null);
+    };
+    useEffect(() => {
+        document.addEventListener("click", handleOutsideClick);
+
+        return () => {
+            document.removeEventListener("click", handleOutsideClick);
+        };
+        // Disable eslint exhaustive-deps warning for this effect
+        // since it doesn't depend on any props or state
+        // and doesn't need to be re-run on any updates
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <div className="shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
             <div className="grid grid-cols-7 gap-0 border-r-2 border-t-2 border-neutral-400 bg-neutral-400 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
@@ -34,7 +57,10 @@ export default function MonthCalendar({
                     S<span className="sr-only sm:not-sr-only">at</span>
                 </div>
             </div>
-            <div className="flex bg-neutral-400 text-xs leading-6 text-gray-700 lg:flex-auto">
+            <div
+                className="flex bg-neutral-400 text-xs leading-6 text-gray-700 lg:flex-auto"
+                ref={gridRef}
+            >
                 <div className="hidden w-full lg:grid lg:grid-cols-7 lg:grid-rows-6 lg:gap-0 lg:border-r-2 lg:border-b-2 lg:border-neutral-400">
                     {days.length === 0 &&
                         // generate 35 days placeholders to fill the grid
@@ -74,7 +100,7 @@ export default function MonthCalendar({
                                     selectedDay === day
                                         ? " border border-neutral-100 shadow-lg shadow-neutral-300 rounded overflow-scroll scroll-smooth scale-125 z-10"
                                         : "border-l-2 border-t-2 border-neutral-400",
-                                    "relative px-3 py-2 hover:bg-gray-100 h-28  max-w-xs w-full "
+                                    "relative px-3 py-2 hover:bg-gray-100 h-32  max-w-xs w-full "
                                 )}
                             >
                                 {selectedDay === day && (
@@ -86,7 +112,7 @@ export default function MonthCalendar({
                                         }}
                                     >
                                         <ArrowsPointingInIcon
-                                            className="absolute top-0 left-0 h-4 w-4 ml-auto text-neutral-500"
+                                            className="absolute top-0 left-0 h-5 w-5 ml-auto text-neutral-500 p-1 hover:text-neutral-900 hover:bg-neutral-300 rounded-full "
                                             aria-hidden="true"
                                         />
                                     </div>
@@ -95,7 +121,7 @@ export default function MonthCalendar({
                                     dateTime={day.date}
                                     className={classNames(
                                         day.isToday
-                                            ? "inline-flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white"
+                                            ? "ml-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 font-semibold text-white"
                                             : undefined,
                                         "px-2"
                                     )}
@@ -108,20 +134,23 @@ export default function MonthCalendar({
                                     }
                                 </time>
                                 {day.hebDate.heDateParts.d && (
-                                    <p className=" top-0 right-0 inline-flex float-right items-center justify-center px-3 py-1 text-xs leading-none ">
+                                    <p className=" float-right px-3 text-sm font-thin">
                                         {day.hebDate.heDateParts.d}
                                     </p>
                                 )}
                                 {day.events.length > 0 && (
                                     <ol
-                                        className={
+                                        className={classNames(
                                             day.events.length > 2
-                                                ? "mt-1"
-                                                : "mt-6"
-                                        }
+                                                ? "mt-2"
+                                                : "mt-8"
+                                        )}
                                     >
                                         {day.events.slice(0, 3).map((event) => (
-                                            <li key={event.id} className="">
+                                            <li
+                                                key={event.id}
+                                                className=" cursor-pointer"
+                                            >
                                                 <a
                                                     href={event.href}
                                                     className="group flex"
@@ -129,12 +158,14 @@ export default function MonthCalendar({
                                                     <p
                                                         className={classNames(
                                                             day.isCurrentMonth
-                                                                ? `text-gray-900 ${
-                                                                      event.backgroundColor ||
-                                                                      " bg-orange-400"
-                                                                  }`
-                                                                : "text-zinc-400 bg-cyan-200",
-                                                            "flex-auto truncate leading-tight rounded  text-white my-0.5 px-2 group-hover:text-indigo-600"
+                                                                ? ` `
+                                                                : "bg-cyan-200 opacity-40",
+                                                            `flex-auto truncate leading-none rounded mb-0.5 px-2 py-1 ${
+                                                                event.backgroundColor ||
+                                                                " bg-orange-400"
+                                                            } ${
+                                                                event.textColor
+                                                            } group-hover:text-indigo-600`
                                                         )}
                                                     >
                                                         {event.name ?? event}
@@ -172,7 +203,7 @@ export default function MonthCalendar({
                                                                                   : " bg-orange-400"
                                                                           }`
                                                                         : "text-zinc-400 bg-cyan-200",
-                                                                    "flex-auto truncate leading-tight rounded  text-white my-0.5 px-2 group-hover:text-indigo-600"
+                                                                    "flex-auto truncate leading-none py-1 rounded text-white mb-0.5 px-2 group-hover:text-indigo-600"
                                                                 )}
                                                             >
                                                                 {event.name ??

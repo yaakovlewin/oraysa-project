@@ -28,5 +28,5 @@ export default function getStudyScheduleEvent(startDate, date) {
   } else if (isSameDay(date, startDate) && ![5, 6].includes(date.getDay())) {
     events.push({ data: getPageOfStudyDay(studyDays, masechtot), isReview: false });
   }
-  return events.length > 0 ? studyEventsGenerator(events, date) : null;
+  return events.length > 0 ? studyEventsGenerator(events, date) : [];
 }

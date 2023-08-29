@@ -6,6 +6,7 @@ const convertDate = async (firstDate, lastDate) => {
         const response = await axios.get(url);
         if (response.status !== 200) {
             throw new Error(`Request failed with status ${response.status}`);
+
         }
         return response.data;
     } catch (error) {
