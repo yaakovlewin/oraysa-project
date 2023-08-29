@@ -34,26 +34,26 @@ export default function MonthCalendar({
 
     return (
         <div className="shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
-            <div className="grid grid-cols-7 gap-0 border-r-2 border-t-2 border-neutral-400 bg-neutral-400 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
-                <div className="bg-white py-2 border-l-2 border-neutral-400">
+            <div className="grid grid-cols-7 gap-0 border-r-1 border-t-1 sm:border-r-2 sm:border-t-2 border-neutral-400 bg-neutral-400 text-center text-xs font-semibold leading-6 text-gray-700 lg:flex-none">
+                <div className="bg-white py-2 border-l-1 sm:border-l-2 border-neutral-400">
                     S<span className="sr-only sm:not-sr-only ">un</span>
                 </div>
-                <div className="bg-white py-2 border-l-2 border-neutral-400">
+                <div className="bg-white py-2 border-l-1 sm:border-l-2 border-neutral-400">
                     M<span className="sr-only sm:not-sr-only">on</span>
                 </div>
-                <div className="bg-white py-2 border-l-2 border-neutral-400">
+                <div className="bg-white py-2 border-l-1 sm:border-l-2 border-neutral-400">
                     T<span className="sr-only sm:not-sr-only">ue</span>
                 </div>
-                <div className="bg-white py-2 border-l-2 border-neutral-400">
+                <div className="bg-white py-2 border-l-1 sm:border-l-2 border-neutral-400">
                     W<span className="sr-only sm:not-sr-only">ed</span>
                 </div>
-                <div className="bg-white py-2 border-l-2 border-neutral-400">
+                <div className="bg-white py-2 border-l-1 sm:border-l-2 border-neutral-400">
                     T<span className="sr-only sm:not-sr-only">hu</span>
                 </div>
-                <div className="bg-white py-2 border-l-2 border-neutral-400">
+                <div className="bg-white py-2 border-l-1 sm:border-l-2 border-neutral-400">
                     F<span className="sr-only sm:not-sr-only">ri</span>
                 </div>
-                <div className="bg-white py-2 border-l-2 border-neutral-400">
+                <div className="bg-white py-2 border-l-1 sm:border-l-2 border-neutral-400">
                     S<span className="sr-only sm:not-sr-only">at</span>
                 </div>
             </div>
@@ -232,7 +232,7 @@ export default function MonthCalendar({
                             </div>
                         ))}
                 </div>
-                <div className="isolate grid w-full grid-cols-7 grid-rows-6 gap-px bg-neutral-200 border-r-2 border-b-2 border-neutral-400 lg:hidden">
+                <div className="isolate grid w-full grid-cols-7 grid-rows-6 gap-px bg-neutral-200 border-r-1 border-b-1 border-neutral-400 sm:border-r-2 sm:border-b-2 lg:hidden">
                     {days &&
                         days.map((day) => (
                             <button
@@ -257,7 +257,7 @@ export default function MonthCalendar({
                                         !day.isCurrentMonth &&
                                         !day.isToday &&
                                         "text-gray-500",
-                                    "flex h-14 flex-col px-1 sm:px-3 py-2 hover:bg-gray-100 focus:z-10 border-l-2 border-t-2 border-neutral-400"
+                                    "flex h-14 flex-col px-1 sm:px-3 py-2 hover:bg-gray-100 focus:z-10 border-l-1 border-t-1 sm:border-l-2 sm:border-t-2 border-neutral-400"
                                 )}
                             >
                                 <section className="flex w-full">
