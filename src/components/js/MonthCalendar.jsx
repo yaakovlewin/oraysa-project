@@ -112,7 +112,7 @@ export default function MonthCalendar({
                                         }}
                                     >
                                         <ArrowsPointingInIcon
-                                            className="absolute top-0 left-0 h-5 w-5 ml-auto text-neutral-500 p-1 hover:text-neutral-900 hover:bg-neutral-300 rounded-full "
+                                            className="absolute top-0 right-0 h-5 w-5 ml-auto text-neutral-500 p-1 hover:text-neutral-900 hover:bg-neutral-300 rounded-full "
                                             aria-hidden="true"
                                         />
                                     </div>
