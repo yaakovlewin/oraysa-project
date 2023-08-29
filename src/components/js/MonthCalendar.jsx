@@ -72,7 +72,7 @@ export default function MonthCalendar({
                                         ? "bg-white"
                                         : "bg-slate-100 text-zinc-500 text-opacity-60",
                                     selectedDay === day
-                                        ? " border border-neutral-100 shadow-lg shadow-neutral-600 rounded overflow-scroll scroll-smooth scale-125 z-10"
+                                        ? " border border-neutral-100 shadow-lg shadow-neutral-300 rounded overflow-scroll scroll-smooth scale-125 z-10"
                                         : "border-l-2 border-t-2 border-neutral-400",
                                     "relative px-3 py-2 hover:bg-gray-100 h-28  max-w-xs w-full "
                                 )}
