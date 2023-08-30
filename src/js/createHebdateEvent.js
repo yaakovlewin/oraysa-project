@@ -4,7 +4,7 @@ import { isSaturday } from 'date-fns';
 export default function createHebdateEvent(date, hebDateEvents) {
     let events = [];
     hebDateEvents.forEach(event => {
-        if (!event.includes('עֶרֶב') && !event.includes('יוֹם כִּפּוּר קָטָן') && !event.includes('חַג') && (!event.includes('יוֹם') || event.includes('יוֹם כִּפּוּר') || event.includes('חֲנוּכָּה'))) {
+        if (!event.includes('סיגד') && !event.includes('עֶרֶב') && !event.includes('יוֹם כִּפּוּר קָטָן') && !event.includes('חַג') && (!event.includes('יוֹם') || event.includes('יוֹם כִּפּוּר') || event.includes('חֲנוּכָּה'))) {
             if (!isSaturday(date.toJSDate()) && event.includes('פָּרָשַׁת')) {
                 return;
             } else {
