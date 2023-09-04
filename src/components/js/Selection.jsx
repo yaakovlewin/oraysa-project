@@ -16,7 +16,7 @@ function Selection({
         <>
             <section className=" border-2 m-auto flex flex-col space-x-4 py-4 px-10 bg-zinc-200 items-center sm:flex-row sm:w-auto justify-center">
                 <label
-                    htmlFor="option-select"
+                    htmlFor="masechtot-select"
                     className="text-sky-800 font-semibold p-1 m-2"
                 >
                     Select a
@@ -27,20 +27,25 @@ function Selection({
                     Amud:
                 </label>
                 <select
+                    id="masechtot-select"
                     value={selectedMasechta}
                     onChange={handleSelectMasechta}
                     className=" text-center rounded p-1 py-2 m-2 w-28 bg-sky-700 text-zinc-100 border border-gray-800 hover:d"
                 >
                     <MasechtotOptions />
                 </select>
+                <label htmlFor="daf-select" />
                 <select
+                    id="daf-select"
                     value={selectedDaf}
                     onChange={handleSelectDaf}
                     className=" text-center p-1 py-2 m-2 w-28 rounded bg-sky-700 text-zinc-100 border border-gray-800"
                 >
                     <DafOption dafim={dafim} />
                 </select>
+                <label htmlFor="amud-select" />
                 <select
+                    id="amud-select"
                     value={selectedAmud}
                     onChange={handleSelectAmud}
                     className=" text-center p-1 py-2 m-2 w-28 rounded bg-sky-700 text-zinc-100 border border-gray-800"
