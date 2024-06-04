@@ -20,17 +20,17 @@ export default function MonthCalendar({
         }
         setSelectedDay(null);
     };
-    useEffect(() => {
-        document.addEventListener("click", handleOutsideClick);
+    // useEffect(() => {
+    //     document.addEventListener("click", handleOutsideClick);
 
-        return () => {
-            document.removeEventListener("click", handleOutsideClick);
-        };
-        // Disable eslint exhaustive-deps warning for this effect
-        // since it doesn't depend on any props or state
-        // and doesn't need to be re-run on any updates
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    //     return () => {
+    //         document.removeEventListener("click", handleOutsideClick);
+    //     };
+    //     // Disable eslint exhaustive-deps warning for this effect
+    //     // since it doesn't depend on any props or state
+    //     // and doesn't need to be re-run on any updates
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
     return (
         <div className="shadow ring-1 ring-black ring-opacity-5 lg:flex lg:flex-auto lg:flex-col">
@@ -88,6 +88,7 @@ export default function MonthCalendar({
                         days.map((day) => (
                             <div
                                 key={day.date}
+                                id={day.date}
                                 onClick={() => handleDayClick(day)}
                                 onDoubleClick={() => handleDayDoubleClick(day)}
                                 onContextMenu={(e) =>

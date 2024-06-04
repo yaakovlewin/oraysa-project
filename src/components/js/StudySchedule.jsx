@@ -100,6 +100,15 @@ function StudySchedule() {
         setSelectedDay(foundDay ? foundDay : null);
     }, [selectedDate, days]);
 
+    const scrolToSelectedDay = () => {
+        if (selectedDay) {
+            const dayElement = document.getElementById(selectedDay.date);
+            if (dayElement) {
+                dayElement.scrollIntoView({ behavior: "smooth" });
+            }
+        }
+    };
+
     return (
         <div className="flex-row py-4 mx-4">
             {error && <p>{error}</p>}
@@ -111,6 +120,8 @@ function StudySchedule() {
                 handleSelectMasechta={handleSelectMasechta}
                 handleSelectDaf={handleSelectDaf}
                 handleSelectAmud={handleSelectAmud}
+                scrolToSelectedDay={scrolToSelectedDay}
+                selectedDay={selectedDay}
             />
             <Calendar
                 selectedDate={selectedDate}
